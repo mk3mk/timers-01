@@ -11,9 +11,46 @@
     <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body>
+<body id="body">
 
 <div id="main">
+
+  <div id="timer1" class="container timer-container">
+    <div class="timer-row row">
+      <div class="timer-etem col-3">
+        <input type="number" min="0" class="form-control fcd" name="days" value="0">
+        <p class="form-label">Дней</p>
+      </div>
+      <div class="timer-etem col-3">
+        <input type="number" min="0" class="form-control fch" name="hours" value="0">
+        <p class="form-label">Часов</p>
+      </div>
+      <div class="timer-etem col-3">
+        <input type="number" min="0" class="form-control fcm" name="minutes" value="0">
+        <p class="form-label">Минут</p>
+      </div>
+      <div class="timer-etem col-3">
+        <input type="number" min="0" class="form-control fcs" name="seconds" value="0">
+        <p class="form-label">Секунд</p>
+      </div>
+    </div>
+    <div class="timer-row-ui row">
+      <div class="mb-3 col-12">
+        <p class="timer-header form-label">Введите название таймера</p>
+        <input type="text" class="form-control" name="sheet_width" value="Название таймера">
+      </div>      
+    </div>
+    <div class="timer-row-ui row">
+      <div class="mb-3 col-4">
+        <button class="btn btn-primary btn-start">Запуск
+        <button class="btn btn-primary btn-stop">Стоп
+      </div>
+      <div class="mb-3 col-8 d-flex justify-content-end">
+        <button class="btn btn-primary btn-delete">Удалить таймер
+        <button class="btn btn-primary btn-add">Добавить таймер
+      </div>
+    </div>
+  </div>
 
   <div id="timer1" class="container timer-container">
     <div class="timer-row row">
@@ -92,7 +129,7 @@
 </div>
 
 
-<div id="header">
+<div id="header" class="header-down">
   <h1>Таймеры</h1>
 </div>
     

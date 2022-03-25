@@ -8,7 +8,9 @@ body{
 #main{
   min-width: 460px;
   min-height: 130px;
+  padding-top: 150px;
 }
+
 .timer-container{
   border: 0px solid red;
   border-radius: 25px;
@@ -84,12 +86,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2e1ff', end
 
 #header{
   position: fixed;
+  transition: 0.25s;
   text-align: center;
-  top: 0px;
+  font-weight: 200;
   left: 0px;
   width: 100%;
   color: #fff;
-  padding: 5px;
+  padding: 25px;
 /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b4ddb4+0,83c783+17,52b152+33,008a00+67,005700+83,002400+100;Green+3D+%231 */
 background: #b4ddb4; /* Old browsers */
 background: -moz-linear-gradient(top,  #b4ddb4 0%, #83c783 17%, #52b152 33%, #008a00 67%, #005700 83%, #002400 100%); /* FF3.6-15 */
@@ -97,4 +100,43 @@ background: -webkit-linear-gradient(top,  #b4ddb4 0%,#83c783 17%,#52b152 33%,#00
 background: linear-gradient(to bottom,  #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 67%,#005700 83%,#002400 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', endColorstr='#002400',GradientType=0 ); /* IE6-9 */
 
+}
+
+.header-up{
+  top: -50px;
+}
+.header-down{
+  top: 0px;
+}
+
+.timer-row-ui .col-6,
+.timer-row-ui .col-4,
+.timer-row-ui .col-8{
+  white-space: nowrap;
+}
+
+/*----------------
+  media
+----------------*/
+
+
+@media screen and (max-width: 960px){
+    
+    
+}
+
+
+@media screen and (max-width: 768px){
+    
+.btn{
+  padding: 7px 5px;
+}
+    
+}
+
+
+@media screen and (max-width: 320px){
+    
+
+    
 }
