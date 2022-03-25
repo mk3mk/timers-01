@@ -8,68 +8,98 @@ let btnStop   = document.querySelectorAll('.btn-stop');
 let btnDelete = document.querySelectorAll('.btn-delete');
 let btnAdd    = document.querySelectorAll('.btn-add');
 
+let timerContainer    = document.querySelectorAll('.timer-container');
+
+
 for (let i = 0; i < btnStart.length; i++) {
   btnStart[i].addEventListener('click', timerStart);
     function timerStart(){
 
-      let fcs = btnStart[i].closest('.timer-container').querySelectorAll('.fcs');
-        for (let y = 0; y < 1; y++) {
-            fcs[y].style.background = 'green';
-            let fcs_value = fcs[y].value;
-            func_fcs();
-            function func_fcs(){
-              setTimeout(function(){
-                  fcs[y].value = fcs_value - 1;
-                  fcs_value = fcs_value - 1;
-                  func_fcs();
-              }, 1000);  
-            }
+      let fcs = btnStart[i].closest('.timer-container').querySelector('.fcs');
+      let fcm = btnStart[i].closest('.timer-container').querySelector('.fcm');
+      let fch = btnStart[i].closest('.timer-container').querySelector('.fch');
+      let fcd = btnStart[i].closest('.timer-container').querySelector('.fcd');
+      let tmok = btnStart[i].closest('.timer-container').querySelector('.timer-end');
+      let btnClose = btnStart[i].closest('.timer-container').querySelector('.btn-close');
+      let port = false;
+
+      fcs.style.background = 'green';
+      fcm.style.background = 'blue';
+      fch.style.background = 'gold';
+      fcd.style.background = 'red';
+
+      let fcs_value = fcs.value;
+      let fcm_value = fcm.value;
+      let fch_value = fch.value;
+      let fcd_value = fcd.value;
             
-        }
+      func_fcs();
+      function func_fcs(){
+        setTimeout(function(){
+            fcs.value = fcs_value;
+              if( fcs_value > 0){
+                fcs_value = fcs_value - 1;
+              }else if( fcs_value == 0){
+                fcs_value = 10;
+                fcm.value = fcm_value - 1;
+              }else if( fcm_value == 0){
+                fcm_value = 10;
+                fch.value = fch_value - 1;
+              }
+            func_fcs();
+        }, 300);  
+      }
 
-      let fcm = btnStart[i].closest('.timer-container').querySelectorAll('.fcm');
-        for (let y = 0; y < fcm.length; y++) {
-            fcm[y].style.background = 'blue';
-            let fcm_value = fcm[y].value;
-            func_fcm();
-            function func_fcm(){
-              setTimeout(function(){
-                  fcm[y].value = fcm_value - 1;
-                  fcm_value = fcm_value - 1;
-                  func_fcm();
-              }, 1000);  
-            }
-        }
+      function func_fcm(){
+        fcm_value = fcm_value - 1;
+        console.log(fcm_value);
+      }
 
-      let fch = btnStart[i].closest('.timer-container').querySelectorAll('.fch');
-        for (let y = 0; y < fch.length; y++) {
-            fch[y].style.background = 'gold';
-            let fch_value = fch[y].value;
-            func_fch();
-            function func_fch(){
-              setTimeout(function(){
-                  fch[y].value = fch_value - 1;
-                  fch_value = fch_value - 1;
-                  func_fch();
-              }, 1000);  
-            }
-        }
+      // func_fch();
+      // function func_fch(){
+      //   setTimeout(function(){
+      //       fch.value = fch_value;
+      //         if( fch_value > 0){
+      //           fch_value = fch_value - 1;
+      //         }else{
+      //           fch_value = 10;
+      //         }
+      //       func_fch();
+      //   }, 50000);  
+      // }
 
-      let fcd = btnStart[i].closest('.timer-container').querySelectorAll('.fcd');
-        for (let y = 0; y < fcd.length; y++) {
-            fcd[y].style.background = 'red';
-            let fcd_value = fcd[y].value;
-            func_fcd();
-            function func_fcd(){
-              setTimeout(function(){
-                  fcd[y].value = fcd_value - 1;
-                  fcd_value = fcd_value - 1;
-                  func_fcd();
-              }, 1000);  
-            }
-        }
-      
+      // func_fcd();
+      // function func_fcd(){
+      //   setTimeout(function(){
+      //       fcd.value = fcd_value;
+      //         if( fcd_value > 0 ){
+      //           fcd_value = fcd_value - 1;
+      //         }else if( port == false ){
+      //           func_timer_stop();
+      //         }
+      //       func_fcd();
+      //   }, 500000);  
+      // }
+
+
+  function func_timer_stop(){
+    btnStart[i].style.background = 'red';
+    console.log(tmok);
+    tmok.classList.add('visible');
+    tmok.classList.remove('invisible');
+
+
+  btnClose.addEventListener('click', function() {
+    tmok.classList.remove('visible');
+    tmok.classList.add('invisible');
+    port = true;
+  })
+
+
     }
+
+  }    
+
 }
 
 
@@ -89,6 +119,8 @@ window.addEventListener('scroll', function() {
   }   
   
 });
+
+
 
 // конец программы
 }, false);
