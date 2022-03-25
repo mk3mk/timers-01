@@ -4,6 +4,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.25s;
 }
 #main{
   min-width: 460px;
@@ -34,6 +35,7 @@ box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.27);
 }
 .timer-etem{
   border: 3px solid pink;
+  transition: 0.25s;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
@@ -65,7 +67,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2e1ff', end
     -moz-appearance: none;
     appearance: none;
     border-radius: 13.25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: 0.25s;
     text-align: center;
 }
 .form-label{
@@ -103,7 +105,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', end
 }
 
 .header-up{
-  top: -50px;
+  top: -70px;
+}
+.header-up:hover{
+  top: 0px;
 }
 .header-down{
   top: 0px;
