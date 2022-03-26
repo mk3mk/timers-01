@@ -39,47 +39,23 @@ for (let i = 0; i < btnStart.length; i++) {
             fcs.value = fcs_value;
               if( fcs_value > 0){
                 fcs_value = fcs_value - 1;
-              }else if( fcs_value == 0){
+              }else if( fcs_value == 0 && fcm_value > 0){
                 fcs_value = 10;
                 fcm.value = fcm_value - 1;
-              }else if( fcm_value == 0){
-                fcm_value = 10;
-                fch.value = fch_value - 1;
+                fcm_value --;
+              }else if( fcs_value == 0 && fcm_value == 0 && port == false ){
+                func_timer_stop();
               }
             func_fcs();
         }, 300);  
       }
 
-      function func_fcm(){
-        fcm_value = fcm_value - 1;
-        console.log(fcm_value);
-      }
 
-      // func_fch();
-      // function func_fch(){
-      //   setTimeout(function(){
-      //       fch.value = fch_value;
-      //         if( fch_value > 0){
-      //           fch_value = fch_value - 1;
-      //         }else{
-      //           fch_value = 10;
-      //         }
-      //       func_fch();
-      //   }, 50000);  
-      // }
 
-      // func_fcd();
-      // function func_fcd(){
-      //   setTimeout(function(){
-      //       fcd.value = fcd_value;
-      //         if( fcd_value > 0 ){
-      //           fcd_value = fcd_value - 1;
-      //         }else if( port == false ){
-      //           func_timer_stop();
-      //         }
-      //       func_fcd();
-      //   }, 500000);  
-      // }
+
+
+
+
 
 
   function func_timer_stop(){
