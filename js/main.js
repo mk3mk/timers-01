@@ -4,16 +4,23 @@ let body = document.querySelector('#body');
 let header = document.querySelector('#header');
 
 let btnStart  = document.querySelectorAll('.btn-start');
-let btnStop   = document.querySelectorAll('.btn-stop');
 let btnDelete = document.querySelectorAll('.btn-delete');
 let btnAdd    = document.querySelectorAll('.btn-add');
 
+
+
 let timerContainer    = document.querySelectorAll('.timer-container');
+let port = false;
+let timerMain;
 
 
 for (let i = 0; i < btnStart.length; i++) {
   btnStart[i].addEventListener('click', timerStart);
     function timerStart(){
+
+      if ( port == true ){
+        port = false;
+      }
 
       let fcs = btnStart[i].closest('.timer-container').querySelector('.fcs');
       let fcm = btnStart[i].closest('.timer-container').querySelector('.fcm');
@@ -21,10 +28,18 @@ for (let i = 0; i < btnStart.length; i++) {
       let fcd = btnStart[i].closest('.timer-container').querySelector('.fcd');
       let tmok = btnStart[i].closest('.timer-container').querySelector('.timer-end');
       let btnClose = btnStart[i].closest('.timer-container').querySelector('.btn-close');
-      let port = false;
+
+      
+      let btnPause = btnStart[i].closest('.timer-container').querySelector('.btn-pause');
+      let btnStop = btnStart[i].closest('.timer-container').querySelector('.btn-stop');
+
+      btnStart[i].classList.add('btn-invisible');
+      btnPause.classList.remove('btn-invisible');
+      btnStop.classList.remove('btn-invisible');
+      
 
       fcs.style.background = 'green';
-      fcm.style.background = 'blue';
+      fcm.style.background = 'cyan';
       fch.style.background = 'gold';
       fcd.style.background = 'red';
 
@@ -35,19 +50,34 @@ for (let i = 0; i < btnStart.length; i++) {
             
       func_fcs();
       function func_fcs(){
-        setTimeout(function(){
+
+      timerMain = setTimeout(function(){
             fcs.value = fcs_value;
+            fcm.value = fcm_value;
+            fch.value = fch_value;
+            fcd.value = fcd_value;
               if( fcs_value > 0){
-                fcs_value = fcs_value - 1;
+                fcs_value --;
               }else if( fcs_value == 0 && fcm_value > 0){
-                fcs_value = 10;
-                fcm.value = fcm_value - 1;
+                fcs_value = 59;
+                fcm.value --;
                 fcm_value --;
-              }else if( fcs_value == 0 && fcm_value == 0 && port == false ){
+              }else if( fcs_value == 0 && fcm_value == 0 && fch_value > 0){
+                fcs_value = 59;
+                fcm_value = 59;
+                fch.value --;
+                fch_value --;
+              }else if( fcs_value == 0 && fcm_value == 0 && fch_value == 0 && fcd_value > 0 ){
+                fcs_value = 59;
+                fcm_value = 59;
+                fch_value = 24;
+                fcd.value --;
+                fcd_value --;
+              }else if( fcs_value == 0 && fcm_value == 0 && fch_value == 0 && fcd_value == 0 && port == false ){
                 func_timer_stop();
               }
             func_fcs();
-        }, 300);  
+        }, 30);  
       }
 
 
@@ -58,8 +88,23 @@ for (let i = 0; i < btnStart.length; i++) {
 
 
 
+
   function func_timer_stop(){
-    btnStart[i].style.background = 'red';
+
+    if (i == 0){
+      btnStart[i].style.background = 'red';
+      btnStart[i].closest('.timer-container').querySelector('.timer-end').style.background = 'url("img/bg-01.gif") center center/100% 100% no-repeat';
+    }else if (i == 1){
+      btnStart[i].style.background = 'green';
+      btnStart[i].closest('.timer-container').querySelector('.timer-end').style.background = 'url("img/bg-02.gif") center center/100% 100% no-repeat';
+    }else if (i == 2){
+      btnStart[i].style.background = 'blue';
+      btnStart[i].closest('.timer-container').querySelector('.timer-end').style.background = 'url("img/bg-03.gif") center center/100% 100% no-repeat';
+    }else if (i == 3 || i > 3){
+      btnStart[i].style.background = 'cyan';
+      btnStart[i].closest('.timer-container').querySelector('.timer-end').style.background = 'red';
+    }
+    
     console.log(tmok);
     tmok.classList.add('visible');
     tmok.classList.remove('invisible');
@@ -69,6 +114,11 @@ for (let i = 0; i < btnStart.length; i++) {
     tmok.classList.remove('visible');
     tmok.classList.add('invisible');
     port = true;
+    clearTimeout(timerMain);
+
+    btnStart[i].classList.remove('btn-invisible');
+    btnPause.classList.add('btn-invisible');
+    btnStop.classList.add('btn-invisible');
   })
 
 
@@ -85,11 +135,11 @@ for (let i = 0; i < btnStart.length; i++) {
 
 window.addEventListener('scroll', function() {
   if ( window.pageYOffset < 50){
-    body.style.background = 'blue';
+    // body.style.background = 'blue';
     header.classList.remove('header-up');
     header.classList.add('header-down');
   }else{
-    body.style.background = 'green';
+    // body.style.background = 'green';
     header.classList.add('header-up');
     header.classList.remove('header-down');
   }   
@@ -100,6 +150,5 @@ window.addEventListener('scroll', function() {
 
 // конец программы
 }, false);
-
 
 
