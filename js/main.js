@@ -5,17 +5,26 @@ let main = document.querySelector('#main');
 let header = document.querySelector('#header');
 let infoTimers = document.querySelector('#info-timers');
 let infoPort = document.querySelector('#info-port');
+let infoNumber = document.querySelector('#info-number');
 
 let btnStart  = document.querySelectorAll('.btn-start');
 let btnDeleteAll = document.querySelectorAll('.btn-delete');
 let btnAddAll = document.querySelectorAll('.btn-add');
 let timerContainer    = document.querySelectorAll('.timer-container');
+let timerNumber    = document.querySelectorAll('.timer-number');
 
 let port = false;
 let timerMain;
 
 infoTimers.innerHTML = 'Таймеров = ' + timerContainer.length;
 infoPort.innerHTML = 'port = ' + port;
+infoNumber.innerHTML = 'port = ' + timerNumber.length;
+
+
+
+for ( let i = 0; i < timerContainer.length; i++ ){
+  timerNumber.innerHTML = '150';
+}
 
 
 for ( let i = 0; i < btnDeleteAll.length; i++ ){
@@ -38,6 +47,8 @@ for ( let i = 0; i < btnDeleteAll.length; i++ ){
       timerContainer    = document.querySelectorAll('.timer-container');
       btnStart  = document.querySelectorAll('.btn-start');
       console.log('удалено. теперь кнопок = ' + btnStart.length + '<br>' + 'контейнеров = ' + timerContainer.length);
+      infoTimers.innerHTML = 'Таймеров = ' + timerContainer.length;
+      infoPort.innerHTML = 'port = ' + port;
 
     }
     setTimeout(delete3, 820);
@@ -57,6 +68,8 @@ for ( let i = 0; i < btnAddAll.length; i++ ){
     timerContainer    = document.querySelectorAll('.timer-container');
     btnStart  = document.querySelectorAll('.btn-start');
     console.log(timerContainer);
+    infoTimers.innerHTML = 'Таймеров = ' + timerContainer.length;
+    infoPort.innerHTML = 'port = ' + port;
   }
 }
 
@@ -73,6 +86,8 @@ for (let i = 0; i < btnStart.length; i++) {
       if ( port == true ){
         port = false;
       }
+
+      timerNumber.innerHTML = i;
 
       let fcs = btnStart[i].closest('.timer-container').querySelector('.fcs');
       let fcm = btnStart[i].closest('.timer-container').querySelector('.fcm');
