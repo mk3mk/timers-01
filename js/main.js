@@ -13,6 +13,9 @@ let timerContainer    = document.querySelectorAll('.timer-container');
 let port = false;
 let timerMain;
 
+
+
+
 for ( let i = 0; i < btnDeleteAll.length; i++ ){
   btnDeleteAll[i].addEventListener('click', deleteTimer);
   function deleteTimer(){
@@ -26,17 +29,25 @@ for ( let i = 0; i < btnDeleteAll.length; i++ ){
     function delete2() {
       btnDeleteAll[i].closest('.timer-container').classList.add('container-to-delete-3');
     }
-    setTimeout(delete2, 1000);
+    setTimeout(delete2, 800);
 
   }
 }
 
+
+
+
 for ( let i = 0; i < btnAddAll.length; i++ ){
   btnAddAll[i].addEventListener('click', addTimer);
     function addTimer(){
-    btnDeleteAll[i].closest('.timer-container').style.background = 'green';
+    // btnDeleteAll[i].closest('.timer-container').style.background = 'green';
     var clonedNode = btnDeleteAll[i].closest('.timer-container').cloneNode(true);
-    main.appendChild(clonedNode);
+    main.appendChild(clonedNode).style.background = 'green';
+
+    timerContainer    = document.querySelectorAll('.timer-container');
+    btnStart  = document.querySelectorAll('.btn-start');
+
+    console.log(timerContainer);
   }
 }
 
@@ -54,6 +65,8 @@ for ( let i = 0; i < btnAddAll.length; i++ ){
 for (let i = 0; i < btnStart.length; i++) {
   btnStart[i].addEventListener('click', timerStart);
     function timerStart(){
+
+      console.log('клик по кнопке Запуск, сейчас таких кнопок =' + btnStart.length)
 
       if ( port == true ){
         port = false;
