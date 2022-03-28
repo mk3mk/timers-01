@@ -216,6 +216,13 @@ box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.527);
   display: flex;
 }
 
+#info{
+  position: fixed;
+  top: 200px;
+  left: 10px;
+  border: 1px solid red;
+}
+
 /*----------------
   media
 ----------------*/

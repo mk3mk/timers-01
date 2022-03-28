@@ -3,17 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
 let body = document.querySelector('#body');
 let main = document.querySelector('#main');
 let header = document.querySelector('#header');
+let infoTimers = document.querySelector('#info-timers');
+let infoPort = document.querySelector('#info-port');
 
 let btnStart  = document.querySelectorAll('.btn-start');
-
 let btnDeleteAll = document.querySelectorAll('.btn-delete');
 let btnAddAll = document.querySelectorAll('.btn-add');
-
 let timerContainer    = document.querySelectorAll('.timer-container');
+
 let port = false;
 let timerMain;
 
-
+infoTimers.innerHTML = 'Таймеров = ' + timerContainer.length;
+infoPort.innerHTML = 'port = ' + port;
 
 
 for ( let i = 0; i < btnDeleteAll.length; i++ ){
@@ -31,10 +33,19 @@ for ( let i = 0; i < btnDeleteAll.length; i++ ){
     }
     setTimeout(delete2, 800);
 
+    function delete3() {
+      btnDeleteAll[i].closest('.timer-container').remove();
+      timerContainer    = document.querySelectorAll('.timer-container');
+      btnStart  = document.querySelectorAll('.btn-start');
+      console.log('удалено. теперь кнопок = ' + btnStart.length + '<br>' + 'контейнеров = ' + timerContainer.length);
+
+    }
+    setTimeout(delete3, 820);
+
   }
+
 }
-
-
+    
 
 
 for ( let i = 0; i < btnAddAll.length; i++ ){
@@ -43,10 +54,8 @@ for ( let i = 0; i < btnAddAll.length; i++ ){
     // btnDeleteAll[i].closest('.timer-container').style.background = 'green';
     var clonedNode = btnDeleteAll[i].closest('.timer-container').cloneNode(true);
     main.appendChild(clonedNode).style.background = 'green';
-
     timerContainer    = document.querySelectorAll('.timer-container');
     btnStart  = document.querySelectorAll('.btn-start');
-
     console.log(timerContainer);
   }
 }
@@ -57,16 +66,9 @@ for ( let i = 0; i < btnAddAll.length; i++ ){
 
 
 
-
-
-
-
-
 for (let i = 0; i < btnStart.length; i++) {
   btnStart[i].addEventListener('click', timerStart);
     function timerStart(){
-
-      console.log('клик по кнопке Запуск, сейчас таких кнопок =' + btnStart.length)
 
       if ( port == true ){
         port = false;
@@ -99,6 +101,8 @@ for (let i = 0; i < btnStart.length; i++) {
       let fcm_value = fcm.value;
       let fch_value = fch.value;
       let fcd_value = fcd.value;
+
+      console.log('клик по кнопке Запуск, сейчас таких кнопок =' + btnStart.length)
             
       func_fcs();
       function func_fcs(){
