@@ -45,6 +45,7 @@ box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.527);
   opacity: 0.5;
   transform: scale(0.95);
   transition: 0.5s;
+  background: #000;
 }
 .container-to-delete-2{
   top: -800px;

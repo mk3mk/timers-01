@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 let body = document.querySelector('#body');
+let main = document.querySelector('#main');
 let header = document.querySelector('#header');
 
 let btnStart  = document.querySelectorAll('.btn-start');
@@ -34,8 +35,11 @@ for ( let i = 0; i < btnAddAll.length; i++ ){
   btnAddAll[i].addEventListener('click', addTimer);
     function addTimer(){
     btnDeleteAll[i].closest('.timer-container').style.background = 'green';
+    var clonedNode = btnDeleteAll[i].closest('.timer-container').cloneNode(true);
+    main.appendChild(clonedNode);
   }
 }
+
 
 
 
