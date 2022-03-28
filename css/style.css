@@ -26,6 +26,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', end
   padding: 15px 10px 5px 10px;
   margin: 5px auto 25px;
   position: relative;
+  top: 0px;
   transition: 0.5s;
   opacity: 1;
 
@@ -46,11 +47,12 @@ box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.527);
   transition: 0.5s;
 }
 .container-to-delete-2{
-  top: -200px;
-  transition: 0.3s;
+  top: -800px;
+  opacity: 0;
+  transition: 0.85s;
 }
 .container-to-delete-3{
-  display: none;
+  height: 1px;
 }
 .timer-row{
   display: flex;
