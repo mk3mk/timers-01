@@ -4,14 +4,47 @@ let body = document.querySelector('#body');
 let header = document.querySelector('#header');
 
 let btnStart  = document.querySelectorAll('.btn-start');
-let btnDelete = document.querySelectorAll('.btn-delete');
-let btnAdd    = document.querySelectorAll('.btn-add');
 
-
+let btnDeleteAll = document.querySelectorAll('.btn-delete');
+let btnAddAll = document.querySelectorAll('.btn-add');
 
 let timerContainer    = document.querySelectorAll('.timer-container');
 let port = false;
 let timerMain;
+
+for ( let i = 0; i < btnDeleteAll.length; i++ ){
+  btnDeleteAll[i].addEventListener('click', deleteTimer);
+  function deleteTimer(){
+    btnDeleteAll[i].closest('.timer-container').classList.add('container-to-delete-1');
+
+    function delete1() {
+      btnDeleteAll[i].closest('.timer-container').classList.add('container-to-delete-2');
+    }
+    setTimeout(delete1, 500);
+
+    function delete2() {
+      btnDeleteAll[i].closest('.timer-container').classList.add('container-to-delete-3');
+    }
+    setTimeout(delete2, 1000);
+
+  }
+}
+
+for ( let i = 0; i < btnAddAll.length; i++ ){
+  btnAddAll[i].addEventListener('click', addTimer);
+    function addTimer(){
+    btnDeleteAll[i].closest('.timer-container').style.background = 'green';
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 for (let i = 0; i < btnStart.length; i++) {
@@ -28,6 +61,8 @@ for (let i = 0; i < btnStart.length; i++) {
       let fcd = btnStart[i].closest('.timer-container').querySelector('.fcd');
       let tmok = btnStart[i].closest('.timer-container').querySelector('.timer-end');
       let btnClose = btnStart[i].closest('.timer-container').querySelector('.btn-close');
+      let btnDelete = btnStart[i].closest('.timer-container').querySelector('.btn-delete');
+      let btnAdd = btnStart[i].closest('.timer-container').querySelector('.btn-add');
 
       
       let btnPause = btnStart[i].closest('.timer-container').querySelector('.btn-pause');
@@ -83,7 +118,9 @@ for (let i = 0; i < btnStart.length; i++) {
 
 
 
-
+      btnDelete.addEventListener('click', function() {
+        btnDelete.style.background = 'green';
+      })
 
 
 
