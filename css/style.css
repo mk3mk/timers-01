@@ -49,6 +49,7 @@ box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.527);
   transform: scale(0.95);
   transition: 0.5s;
   background: #000;
+  filter: blur(3px);
 }
 .container-to-delete-2{
   top: -800px;
@@ -227,6 +228,12 @@ box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.527);
   background: #ddd;
   padding: 5px;
   border-radius: 5px;
+  opacity: 0.5;
+  transition: 0.25s;
+}
+
+#info:hover{
+  opacity: 1;
 }
 
 .timer-number{

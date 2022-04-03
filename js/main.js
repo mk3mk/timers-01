@@ -57,32 +57,26 @@ for ( let i = 0; i < timerContainer.length; i++ ){
 for ( let i = 0; i < btnDeleteAll.length; i++ ){
   btnDeleteAll[i].addEventListener('click', deleteTimer);
   function deleteTimer(){
-    btnDeleteAll[i].closest('.timer-container').classList.add('container-to-delete-1');
+    
+    this.closest('.timer-container').className = 'container container-to-delete-1';
 
-    function delete1() {
-      btnDeleteAll[i].closest('.timer-container').classList.add('container-to-delete-2');
+    function delete1this() {
+      let thisTimer = document.querySelector('.container-to-delete-1');
+      thisTimer.className = 'container container-to-delete-2';
     }
-    setTimeout(delete1, 500);
+    setTimeout(delete1this, 500);
 
-    function delete2() {
-      btnDeleteAll[i].closest('.timer-container').classList.add('container-to-delete-3');
+    function delete2this() {
+      let thisTimer = document.querySelector('.container-to-delete-2');
+      thisTimer.className = 'container container-to-delete-3';
     }
-    setTimeout(delete2, 800);
+    setTimeout(delete2this, 800);
 
-    function delete3() {
-      btnDeleteAll[i].closest('.timer-container').remove();
-      timerContainer    = document.querySelectorAll('.timer-container');
-      btnStart  = document.querySelectorAll('.btn-start');
-      console.log('удалено. теперь кнопок = ' + btnStart.length + '<br>' + 'контейнеров = ' + timerContainer.length);
-      infoTimers.innerHTML = 'Таймеров = ' + timerContainer.length;
-      infoPort.innerHTML = 'port = ' + port;
-        for ( let i = 0; i < timerContainer.length; i++ ){
-          timerNumber[i].innerHTML = i;
-          timerNumber[i].style.background = 'green';
-        }
-
+    function delete3this() {
+      let thisTimer = document.querySelector('.container-to-delete-3');
+      thisTimer.remove();
     }
-    setTimeout(delete3, 820);
+    setTimeout(delete3this, 820);
 
   }
 
@@ -93,14 +87,7 @@ for ( let i = 0; i < btnDeleteAll.length; i++ ){
 for ( let i = 0; i < btnAddAll.length; i++ ){
   btnAddAll[i].addEventListener('click', addTimer);
     function addTimer(){
-    // btnAddAll[i].closest('.timer-container').style.background = 'green';
-    let cloned_Node = btnAddAll[i].closest('.timer-container').cloneNode(true);
-    main.append(cloned_Node);
-    cloned_Node.style.background = 'green';
-    btnDeleteAll = document.querySelectorAll('.btn-delete');
-    infoDelete.innerHTML = 'удалить = ' + btnDeleteAll.length;
-    setTimeout(update, 1000);
-
+      plusTimer();
   }
 }
 
