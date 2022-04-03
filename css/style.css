@@ -37,15 +37,18 @@ background: -webkit-linear-gradient(top,  #cb60b3 0%,#ad1283 50%,#de47ac 100%); 
 background: linear-gradient(to bottom,  #cb60b3 0%,#ad1283 50%,#de47ac 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb60b3', endColorstr='#de47ac',GradientType=0 ); /* IE6-9 */
 
--webkit-box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.527);
--moz-box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.527);
-box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.527);
+-webkit-box-shadow: 5px 5px 5px 1px rgba(81, 23, 66, 0.527);
+-moz-box-shadow: 5px 5px 5px 1px rgba(81, 23, 66, 0.527);
+box-shadow: 5px 5px 5px 1px rgba(81, 23, 66, 0.527);
+
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+
 }
 .timer-container--none{
   display: none;
 }
 .container-to-delete-1{
-  opacity: 0.5;
+  opacity: 0.35;
   transform: scale(0.95);
   transition: 0.5s;
   background: #000;
@@ -80,6 +83,10 @@ background: -moz-linear-gradient(top,  #b2e1ff 0%, #66b6fc 100%); /* FF3.6-15 */
 background: -webkit-linear-gradient(top,  #b2e1ff 0%,#66b6fc 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to bottom,  #b2e1ff 0%,#66b6fc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2e1ff', endColorstr='#66b6fc',GradientType=0 ); /* IE6-9 */
+
+-webkit-box-shadow: 5px 5px 5px 1px rgba(81, 23, 66, 0.527);
+-moz-box-shadow: 5px 5px 5px 1px rgba(81, 23, 66, 0.527);
+box-shadow: 5px 5px 5px 1px rgba(81, 23, 66, 0.527);
 
 }
 
@@ -116,6 +123,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2e1ff', end
   border-radius: 13.25rem;
   padding: 15px 25px;
   transition: 0.25s;
+-webkit-box-shadow: 5px 5px 5px 1px rgba(81, 23, 66, 0.527);
+-moz-box-shadow: 5px 5px 5px 1px rgba(81, 23, 66, 0.527);
+box-shadow: 5px 5px 5px 1px rgba(81, 23, 66, 0.527);
 }
 
 .btn-start{
@@ -126,6 +136,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2e1ff', end
 }
 .btn-stop{
   background: lightcoral;
+}
+.btn-delete{
+  background: red;
 }
 .btn-invisible{
   opacity: 0.1;
@@ -244,6 +257,7 @@ box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.527);
   transform: skewX(-20deg);
   border: 1px solid red;
   box-shadow: 5px 5px #777;
+  background: gold;
 }
 
 #info-plus{
