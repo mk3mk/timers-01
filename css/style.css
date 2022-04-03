@@ -41,6 +41,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb60b3', end
 -moz-box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.527);
 box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.527);
 }
+.timer-container--none{
+  display: none;
+}
 .container-to-delete-1{
   opacity: 0.5;
   transform: scale(0.95);
@@ -221,6 +224,30 @@ box-shadow: 4px 4px 18px 6px rgba(81, 23, 66, 0.527);
   top: 200px;
   left: 10px;
   border: 1px solid red;
+  background: #ddd;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.timer-number{
+  width: 50%;
+  position: relative;
+  left: -10px;
+  margin-right: 50%;
+  transform: skewX(-20deg);
+  border: 1px solid red;
+  box-shadow: 5px 5px #777;
+}
+
+#info-plus{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background: green;
+  border-radius: 55px;
+  margin: auto;
+  cursor: pointer;
 }
 
 /*----------------

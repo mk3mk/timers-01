@@ -6,25 +6,52 @@ let header = document.querySelector('#header');
 let infoTimers = document.querySelector('#info-timers');
 let infoPort = document.querySelector('#info-port');
 let infoNumber = document.querySelector('#info-number');
+let infoPlus = document.querySelector('#info-plus');
+let infoDelete = document.querySelector('#info-delete');
+
+
+main.addEventListener('mouseover', updateAll)
+function updateAll(){
+    timerContainer    = document.querySelectorAll('.timer-container');
+    timerNumber    = document.querySelectorAll('.timer-number');
+    btnStart  = document.querySelectorAll('.btn-start');
+    btnDeleteAll = document.querySelectorAll('.btn-delete');
+    
+    console.log(timerContainer.length);
+
+    infoTimers.innerHTML = 'Таймеров = ' + timerContainer.length;
+    infoPort.innerHTML = 'port = ' + port;
+    infoNumber.innerHTML = 'таймеров = ' + timerNumber.length;
+    infoDelete.innerHTML = 'удалить = ' + btnDeleteAll.length;
+}
+
+
+
 
 let btnStart  = document.querySelectorAll('.btn-start');
 let btnDeleteAll = document.querySelectorAll('.btn-delete');
 let btnAddAll = document.querySelectorAll('.btn-add');
 let timerContainer    = document.querySelectorAll('.timer-container');
 let timerNumber    = document.querySelectorAll('.timer-number');
+let timerContainerNone    = document.querySelector('.timer-container--none');
+
+
 
 let port = false;
 let timerMain;
 
 infoTimers.innerHTML = 'Таймеров = ' + timerContainer.length;
 infoPort.innerHTML = 'port = ' + port;
-infoNumber.innerHTML = 'port = ' + timerNumber.length;
+infoNumber.innerHTML = 'таймеров = ' + timerNumber.length;
+infoDelete.innerHTML = 'удалить = ' + btnDeleteAll.length;
 
 
 
 for ( let i = 0; i < timerContainer.length; i++ ){
-  timerNumber.innerHTML = '150';
+  timerNumber[i].innerHTML = i;
+  timerNumber[i].style.background = 'green';
 }
+
 
 
 for ( let i = 0; i < btnDeleteAll.length; i++ ){
@@ -49,6 +76,10 @@ for ( let i = 0; i < btnDeleteAll.length; i++ ){
       console.log('удалено. теперь кнопок = ' + btnStart.length + '<br>' + 'контейнеров = ' + timerContainer.length);
       infoTimers.innerHTML = 'Таймеров = ' + timerContainer.length;
       infoPort.innerHTML = 'port = ' + port;
+        for ( let i = 0; i < timerContainer.length; i++ ){
+          timerNumber[i].innerHTML = i;
+          timerNumber[i].style.background = 'green';
+        }
 
     }
     setTimeout(delete3, 820);
@@ -62,18 +93,74 @@ for ( let i = 0; i < btnDeleteAll.length; i++ ){
 for ( let i = 0; i < btnAddAll.length; i++ ){
   btnAddAll[i].addEventListener('click', addTimer);
     function addTimer(){
-    // btnDeleteAll[i].closest('.timer-container').style.background = 'green';
-    var clonedNode = btnDeleteAll[i].closest('.timer-container').cloneNode(true);
-    main.appendChild(clonedNode).style.background = 'green';
-    timerContainer    = document.querySelectorAll('.timer-container');
-    btnStart  = document.querySelectorAll('.btn-start');
-    console.log(timerContainer);
-    infoTimers.innerHTML = 'Таймеров = ' + timerContainer.length;
-    infoPort.innerHTML = 'port = ' + port;
+    // btnAddAll[i].closest('.timer-container').style.background = 'green';
+    let cloned_Node = btnAddAll[i].closest('.timer-container').cloneNode(true);
+    main.append(cloned_Node);
+    cloned_Node.style.background = 'green';
+    btnDeleteAll = document.querySelectorAll('.btn-delete');
+    infoDelete.innerHTML = 'удалить = ' + btnDeleteAll.length;
+    setTimeout(update, 1000);
+
   }
 }
 
 
+function update(){
+    timerContainer    = document.querySelectorAll('.timer-container');
+    timerNumber    = document.querySelectorAll('.timer-number');
+    btnStart  = document.querySelectorAll('.btn-start');
+    btnDeleteAll = document.querySelectorAll('.btn-delete');
+    
+    console.log(timerContainer.length);
+
+    infoTimers.innerHTML = 'Таймеров = ' + timerContainer.length;
+    infoPort.innerHTML = 'port = ' + port;
+    infoNumber.innerHTML = 'таймеров = ' + timerNumber.length;
+    infoDelete.innerHTML = 'удалить = ' + btnDeleteAll.length;
+}
+
+infoPlus.addEventListener('click', plusTimer);
+function plusTimer(){
+  // infoPlus.style.background = 'gold';
+  let newTimer = timerContainerNone.cloneNode(true);
+  newTimer.className = "container timer-container";
+  
+  timerNumber    = document.querySelectorAll('.timer-number');
+  infoNumber.innerHTML = 'таймеров = ' + timerNumber.length;
+  main.append(newTimer);
+  update();
+
+  newTimer.querySelector('.timer-number').style.background = "gold";
+  newTimer.querySelector('.timer-number').innerHTML = timerContainer.length;
+
+  newTimer.querySelector('.btn-delete').style.background = "red";
+  newTimer.querySelector('.btn-delete').addEventListener('click', deleteThisTimer);
+  newTimer.querySelector('.btn-add').addEventListener('click', plusTimer);
+
+  function deleteThisTimer(){
+
+    this.closest('.timer-container').className = 'container container-to-delete-1';
+
+    function delete1this() {
+      let thisTimer = document.querySelector('.container-to-delete-1');
+      thisTimer.className = 'container container-to-delete-2';
+    }
+    setTimeout(delete1this, 500);
+
+    function delete2this() {
+      let thisTimer = document.querySelector('.container-to-delete-2');
+      thisTimer.className = 'container container-to-delete-3';
+    }
+    setTimeout(delete2this, 800);
+
+    function delete3this() {
+      let thisTimer = document.querySelector('.container-to-delete-3');
+      thisTimer.remove();
+    }
+    setTimeout(delete3this, 820);
+  }
+
+}
 
 
 

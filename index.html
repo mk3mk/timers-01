@@ -15,6 +15,51 @@
 
 <div id="main">
 
+  <div class="container timer-container--none">
+    <div class="timer-row row">
+      <p class="timer-number">3</p>
+    </div>
+    <div class="timer-row row">
+      <div class="timer-etem col-3">
+        <input type="number" min="0" class="form-control fcd" name="days" value="0">
+        <p class="form-label">Дней</p>
+      </div>
+      <div class="timer-etem col-3">
+        <input type="number" min="0" class="form-control fch" name="hours" value="0">
+        <p class="form-label">Часов</p>
+      </div>
+      <div class="timer-etem col-3">
+        <input type="number" min="0" class="form-control fcm" name="minutes" value="0">
+        <p class="form-label">Минут</p>
+      </div>
+      <div class="timer-etem col-3">
+        <input type="number" min="0" class="form-control fcs" name="seconds" value="0">
+        <p class="form-label">Секунд</p>
+      </div>
+    </div>
+    <div class="timer-row-ui row">
+      <div class="mb-3 col-12">
+        <p class="timer-header form-label">Введите название таймера</p>
+        <input type="text" class="form-control" name="sheet_width" value="Название таймера">
+      </div>      
+    </div>
+    <div class="timer-row-ui row">
+      <div class="mb-3 col-4">
+        <button class="btn btn-primary btn-start">Запуск
+        <button class="btn btn-primary btn-pause btn-invisible">Пауза
+        <button class="btn btn-primary btn-stop btn-invisible">Стоп
+      </div>
+      <div class="mb-3 col-8 d-flex justify-content-end">
+        <button class="btn btn-primary btn-delete">Удалить таймер
+        <button class="btn btn-primary btn-add">Добавить таймер
+      </div>
+    </div>
+    <div class="timer-end invisible">
+        <h3>Конец</h3>
+        <button class="btn btn-primary btn-close">ОК
+    </div>
+  </div>
+
   <div class="container timer-container">
     <div class="timer-row row">
       <p class="timer-number">1</p>
@@ -161,6 +206,8 @@
   <p id="info-timers">Таймеров</p>
   <p id="info-port">Port</p>
   <p id="info-number">timer-number</p>
+  <p id="info-delete">info-delete</p>
+  <h2 id="info-plus">+</h2>
 </div>
     
 <script src="js/main.js"></script>
